@@ -44,7 +44,7 @@ def main_menu():
         print('1. Book Operations')
         print('2. User Operations')
         print('3. Author Operations')
-        print("4. Quit")
+        print('4. Quit')
 
         choice = input("Enter your choice: ")
         if choice == "1":
