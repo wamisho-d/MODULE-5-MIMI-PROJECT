@@ -13,7 +13,7 @@ def create_connection():
     try:
         connection = mysql.connector.connect(**config)
         if connection.is_connected():
-            print("Connection to MySQL DB successful")
+            print("Connection to MySQL DB successful!")
     except Error as e:
         print(f"The error '{e}' occurred")
     return connection
@@ -130,7 +130,7 @@ def add_book():
     title = input("Enter book title: ")
     author_id = int(input("Enter author ID: "))
     isbn = input("Enter ISBN: ")
-    publication_date = input("Enter publication date (YYYY-MM-DD): ")
+    publication_date = input("Enter publication date (yyy-mm-dd): ")
     query = """
     INSERT INTO books (title, author_id, isbn, publication_date) VALUES (%s, %s, %s, %s)
     """
@@ -142,7 +142,7 @@ def borrow_book():
     connection = create_connection()
     user_id = int(input("Enter user ID: "))
     book_id = int(input("Enter book ID: "))
-    borrow_date = input("Enter borrow date (YYYY-MM-DD): ")
+    borrow_date = input("Enter borrow date (yyyy-mm-dd): ")
     query = """
     INSERT INTO borrowed_books (user_id, book_id, borrow_date) VALUES (%s, %s, %s)
     """
@@ -157,7 +157,7 @@ def borrow_book():
 def return_book():
     connection = create_connection()
     book_id = int(input("Enter book ID: "))
-    return_date = input("Enter return date (YYYY-MM-DD): ")
+    return_date = input("Enter return date (yyyy-mm-dd): ")
     query = """
     UPDATE borrowed_books SET return_date = %s WHERE book_id = %s AND return_date IS NULL
     """
